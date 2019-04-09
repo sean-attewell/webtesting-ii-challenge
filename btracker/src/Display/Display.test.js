@@ -5,8 +5,8 @@ import Display from './Display.js';
 afterEach(rtl.cleanup); // stops rendering twice
 
 const counts = {
-    balls: 4,
-    strikes: 2
+    balls: 5,
+    strikes: 1
 }
 
 describe('Display', () => {
@@ -20,10 +20,10 @@ describe('Display', () => {
         expect(wrap.getByText(/strikes/i));
     });
 
-    it('outputs only numbers 0-3', () => {
+    it('outputs only numbers 0-3 for balls', () => {
         const wrap = rtl.render(<Display balls={counts.balls} strikes={counts.strikes} />);
         // console.log(wrap.debug())
-        expect(wrap.getByText(/[0123]/i));
+        expect(wrap.queryByText(/balls: [0|1|2|3]/i)).toBeFalsy();
         // expect(wrap.queryByText(/[0-3]/i)).toBeTruthy();
     });
 

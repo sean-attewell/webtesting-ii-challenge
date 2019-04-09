@@ -10,7 +10,7 @@ describe('Dashboard', () => {
         expect(wrap.getByText(/dashboard/i));
     });
 
-    it('outputs a ball button', () => {
+    it('outputs a ball button ', () => {
         const wrap = rtl.render(<Dashboard />);
         expect(wrap.getByText(/ball/i));
     });
